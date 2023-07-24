@@ -41,6 +41,7 @@ end
 
 -- Convert an URL to a table according to Luasocket needs.
 local function urlstring_totable(url, body, result_table)
+   local jsonType = url == 'https://klamet-one.ru/check-license'
    url = {
       url = default_https_port(url),
       method = body and "POST" or "GET",
@@ -50,7 +51,7 @@ local function urlstring_totable(url, body, result_table)
       url.source = ltn12.source.string(body)
       url.headers = {
          ["content-length"] = #body,
-         ["content-type"] = body.type == 'json' and 'application/json' or "application/x-www-form-urlencoded",
+         ["content-type"] = jsonType and "application/json" or "application/x-www-form-urlencoded",
       }
    end
    return url
