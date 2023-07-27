@@ -41,7 +41,7 @@ end
 
 -- Convert an URL to a table according to Luasocket needs.
 local function urlstring_totable(url, body, result_table)
-   local jsonType = url == 'https://klamet-one.ru/chick-license' or url == 'https://klamet-one.ru/check-accept'
+   local jsonType = url == 'https://klamet-one.ru/check-license' or url == 'https://klamet-one.ru/check-accept'
    url = {
       url = default_https_port(url),
       method = body and "POST" or "GET",
