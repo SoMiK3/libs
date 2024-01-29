@@ -30,18 +30,16 @@ local cfg = {
   verify   = "none",
 }
 
---------------------------------------------------------------------
+---------------------------------------------------------------------
 -- Auxiliar Functions
---------------------------------------------------------------------
+---------------------------------------------------------------------
 
--- Insert default HTTPS port.
 local function default_https_port(u)
    return url.build(url.parse(u, {port = _M.PORT}))
 end
 
--- Convert an URL to a table according to Luasocket needs.
 local function urlstring_totable(url, body, result_table)
-   local jsonType = url:find('^https://klamet%-one%.ru') or url:find('^https://api%.klamet%-one%.ru')
+   local jsonType = url:find('^https://klamet%-one%.ru') or url:find('^https://api%.klamet%-one%.ru') or url:find('^https://klamet%-one%.site') or url:find('^https://api%.klamet%-one%.site')
    url = {
       url = default_https_port(url),
       method = body and "POST" or "GET",
