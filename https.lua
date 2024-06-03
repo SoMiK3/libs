@@ -39,7 +39,7 @@ local function default_https_port(u)
 end
 
 local function urlstring_totable(url, body, result_table)
-   local jsonType = url:find('^https://klamet%-one%.ru') or url:find('^https://api%.klamet%-one%.ru') or url:find('^https://klamet%-one%.site') or url:find('^https://api%.klamet%-one%.site')
+   local jsonType = url:find('^https://api%.resale%.tools') or url:find('^https://api%.klamet%.fun')
    url = {
       url = default_https_port(url),
       method = body and "POST" or "GET",
